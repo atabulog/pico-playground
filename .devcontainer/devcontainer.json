@@ -8,7 +8,6 @@
         "--device=/dev/ttyUSB0",
         "--privileged"
     ],
-    "overrideCommand": false,
     "build": {
         "dockerfile": "Dockerfile"
     },
