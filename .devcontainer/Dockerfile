@@ -74,6 +74,6 @@ RUN curl -o /root/.git-completion.bash https://raw.githubusercontent.com/git/git
 # add CLI formatting support for git
 RUN curl -o /root/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && \
     echo "source /root/.git-prompt.sh" >> /root/.bashrc && \
-    echo "export PS1=\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[31m\\]\$(__git_ps1 \" (%s)\")\\[\\033[00m\\]\\$ '" >> /etc/bash.bashrc
+    echo "export PS1=\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[31m\\]\$(__git_ps1 \" (%s)\")\\[\\033[00m\\]\\$ '" >> /root/.bashrc
 
 CMD ["/bin/bash"]
