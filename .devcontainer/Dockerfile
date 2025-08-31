@@ -59,21 +59,21 @@ RUN ln -s /usr/bin/python3.12 /usr/bin/python
 WORKDIR /workspace
 
 # set bashrc settings 
-RUN echo '# Custom interactive shell enhancements' >> /etc/bash.bashrc && \
-    echo 'export TERM=xterm-256color' >> /etc/bash.bashrc && \
-    echo 'alias ll="ls -alF"' >> /etc/bash.bashrc && \
-    echo 'alias la="ls -A"' >> /etc/bash.bashrc && \
-    echo 'alias l="ls -CF"' >> /etc/bash.bashrc && \
-    echo 'export PS1="\[\e[32m\]\u@\h:\[\e[34m\]\w\[\e[0m\]\$ "' >> /etc/bash.bashrc && \
-    echo 'if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi' >> /etc/bash.bashrc
+RUN echo '# Custom interactive shell enhancements' >> ~/.bashrc && \
+    echo 'export TERM=xterm-256color' >> ~/.bashrc && \
+    echo 'alias ll="ls -alF"' >> ~/.bashrc && \
+    echo 'alias la="ls -A"' >> ~/.bashrc && \
+    echo 'alias l="ls -CF"' >> ~/.bashrc && \
+    echo 'export PS1="\[\e[32m\]\u@\h:\[\e[34m\]\w\[\e[0m\]\$ "' >> ~/.bashrc && \
+    echo 'if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi' >> ~/.bashrc
 
 # add git completion support
 RUN curl -o /root/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash && \
-    echo "source /root/.git-completion.bash" >> /etc/bash.bashrc
+    echo "source /root/.git-completion.bash" >> /root/.bashrc
 
 # add CLI formatting support for git
 RUN curl -o /root/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && \
-    echo "source /root/.git-prompt.sh" >> /etc/bash.bashrc && \
-    echo 'export PS1="\[\e[32m\]\u@\h:\[\e[34m\]\w\[\e[33m\]\$(__git_ps1)\[\e[0m\]\$ "' >> /etc/bash.bashrc
+    echo "source /root/.git-prompt.sh" >> /root/.bashrc && \
+    echo "export PS1=\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[31m\\]\$(__git_ps1 \" (%s)\")\\[\\033[00m\\]\\$ '" >> /etc/bash.bashrc
 
 CMD ["/bin/bash"]
