@@ -35,7 +35,8 @@ RUN apt-get install -y \
     tar \
     tzdata \
     unzip \
-    wget
+    wget \
+    gcc-arm-none-eabi
 
 #build google test and mock from source and install
 RUN cd /usr/src/googletest && cmake . && make && cp ./lib/*.a /usr/lib
