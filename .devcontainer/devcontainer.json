@@ -9,9 +9,6 @@
         "--privileged"
     ],
     "overrideCommand": false,
-    "mounts": [
-        "type=bind,source=/dev,target=/dev"
-    ],
     "build": {
         "dockerfile": "Dockerfile"
     },
