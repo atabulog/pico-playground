@@ -65,7 +65,7 @@ RUN echo '# Custom interactive shell enhancements' >> /etc/bash.bashrc && \
     echo 'alias la="ls -A"' >> /etc/bash.bashrc && \
     echo 'alias l="ls -CF"' >> /etc/bash.bashrc && \
     echo 'export PS1="\[\e[32m\]\u@\h:\[\e[34m\]\w\[\e[0m\]\$ "' >> /etc/bash.bashrc && \
-    echo 'if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi' >> /etc/bash.bashrc && 
+    echo 'if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi' >> /etc/bash.bashrc
 
 # add git completion support
 RUN curl -o /root/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash && \
