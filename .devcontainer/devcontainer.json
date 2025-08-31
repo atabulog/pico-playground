@@ -4,7 +4,13 @@
         "--name",
         "demo",
         "--hostname",
-        "dev"
+        "dev",
+        "--device=/dev/ttyUSB0",
+        "--privileged"
+    ],
+    "overrideCommand": false,
+    "mounts": [
+        "type=bind,source=/dev,target=/dev"
     ],
     "build": {
         "dockerfile": "Dockerfile"
