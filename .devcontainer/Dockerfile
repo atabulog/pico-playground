@@ -36,6 +36,7 @@ RUN apt-get install -y \
     tzdata \
     unzip \
     wget \
+    libusb-1.0-0 \ 
     gcc-arm-none-eabi
 
 #build google test and mock from source and install
