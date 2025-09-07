@@ -11,8 +11,7 @@ namespace common
 {
 
 /**
- * @brief Shared memory region
- *
+ * @brief Class managing shared memory between multiple cores
  */
 class SharedMemory
 {
@@ -105,7 +104,8 @@ class SharedMemory
         return false; // skip if busy
     }
 
-    mutex_t control_report_mutex_; /**< Mutex for control report mailbox*/
+    static Control_Report_Msg_t control_report_shared_; /**< singleton control report data*/
+    static mutex_t control_report_mutex_;               /**< singleton mutex for control report*/
 };
 
 } // namespace common

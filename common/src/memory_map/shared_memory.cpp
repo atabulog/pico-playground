@@ -1,17 +1,14 @@
 #include "shared_memory.h"
 
-// #defines for hard setting the spinlock id's for specific data entries
-#define SPINLOCK_ID_CONTROL_REPORT 0
-
-// define shared memory instances for both cores here
-static volatile common::Control_Report_Msg_t control_report_shared_;
-
 namespace common
 {
 
+// define shared memory instances for both cores here
+Control_Report_Msg_t control_report_shared_{}; /**< control report data stored in generic shared memory*/
+
 SharedMemory::SharedMemory()
 {
-    mutex_init(&control_report_mutex_, SPINLOCK_ID_CONTROL_REPORT);
+    mutex_init(&control_report_mutex_);
 }
 
 SharedMemory& SharedMemory::getInstance()
