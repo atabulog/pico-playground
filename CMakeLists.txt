@@ -43,5 +43,5 @@ pico_sdk_init()
 
 # Add the shared memory library
 add_subdirectory(common)
-#add_subdirectory(core0)
+add_subdirectory(core0)
 #add_subdirectory(core1)
